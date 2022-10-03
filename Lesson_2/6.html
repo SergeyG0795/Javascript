@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Необязательное задание.
+
+Необходимо реализовать функцию, которая будет принимать первым аргументом
+целое положительное число, в следующих трех аргументах функция принимает слова
+в разных склонениях.
+Функция должна возвращать одно из трех переданных в параметры слов подходящее
+под число, которое передано первым аргументом.
+
+Пример:
+console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+
+Функция должна работать с любым словом и любым целым положительным числом.
+Все аргументы, которые будут передаваться функции будут верны.
+-->
+<script>
+  "use strict";
+
+  function declinationOfNumber(count, one, two, five) {
+    const i = count % 100;
+    const j = i % 10;
+    
+    if (i >= 5 && i <= 20) {
+      return five;
+    } else if (j > 1 && j < 5){
+      return two;
+    } else if (j == 1) {
+      return one;
+    } else{
+      return five;
+    }
+  }
+
+  // Проверка
+  let applesNumber = 5;
+  let word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
+  console.log(`У меня есть ${applesNumber} ${word}.`);
+  // У меня 5 яблок.
+  applesNumber = 1;
+  word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
+  console.log(`У меня есть ${applesNumber} ${word}.`);
+  // У меня 1 яблоко.
+  applesNumber = 52;
+  word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
+  console.log(`У меня есть ${applesNumber} ${word}.`);
+  // У меня 52 яблока.
+
+
+</script>
+</body>
+</html>
